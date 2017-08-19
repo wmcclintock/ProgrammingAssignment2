@@ -2,16 +2,23 @@
 ## functions do
 
 ## makeCacheMatrix returns a list of functions
-
+# set function initiates x and m
+# assigns y to x and pushes x to the enclosing environment (CacheMatrix()
 makeCacheMatrix <- function(x = matrix()) {
+  
         m <- NULL
-        set <- function(y) {	# set function initiates x and m
-                x <<- y		# assigns y to x and pushes x to the enclosing environment (CacheMatrix()
+        
+        set <- function(y) {	
+                x <<- y		    
                 m <<- NULL
         }
-        get <- function() 
+        
+        get <- function() x
+        
         setsolve <- function(solve) m <<- solve
+        
         getsolve <- function() m
+
         list(set = set, get = get, setsolve = setsolve, getsolve = getsolve)
 }
 
@@ -19,10 +26,11 @@ makeCacheMatrix <- function(x = matrix()) {
 # 'obj' is now a list of the above functions 
 
 ## Return a matrix that is the inverse of 'x'
-
-cacheSolve <- function(obj, ...) { # x refers to the x object input argument - list of functions from makeCacheMatrix (myval <- makeCacheMatrix())
+# obj refers to the object input argument created by the above makeCacheMatric function 
+# input is a list of functions from makeCacheMatrix (myval <- makeCacheMatrix())
+cacheSolve <- function(obj, ...) { 
         
-        m <- obj$getsolve()	# 
+        m <- obj$getsolve()	 
         if(!is.null(m)) {
                 message("getting cached data")
                 return(m)
