@@ -1,5 +1,9 @@
-## Put comments here that give an overall description of what your
-## functions do
+# R Programming Assignment 2
+# Submission 20/08/17
+
+## This function creates an object with a matrix and list of functions
+## that enable the matrix inverse to be computed and cached to prevent
+## the need for recomputation
 
 ## makeCacheMatrix returns a list of functions
 # set function initiates x and m
